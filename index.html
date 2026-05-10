@@ -1,0 +1,2439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Certified AI Pilot — aipilotlicense.com</title>
+<meta name="description" content="The Certified AI Pilot credential. The professional standard for operating AI as an execution engine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ==========================================================
+     CAIP — aipilotlicense.com
+     Design system: institutional credentialing body.
+     Reference language: Point72 / NASM / Erickson Coaching Intl.
+     ========================================================== */
+
+  :root {
+    /* Palette — restrained, paper-and-ink with single accent */
+    --ink:        #0A0E13;
+    --ink-2:      #1C2027;
+    --ink-3:      #353941;
+    --paper:      #FAF7F2;
+    --paper-2:    #F2EDE3;
+    --paper-3:    #E8E2D5;
+    --line:       rgba(10, 14, 19, 0.10);
+    --line-2:     rgba(10, 14, 19, 0.18);
+    --mute:       #65696F;
+    --mute-2:     #8A8E94;
+    --accent:     #A8321C;
+    --accent-2:   #832513;
+    --success:    #2D5A3F;
+    --signal:     #B8861B;
+
+    /* Type stack */
+    --serif: 'Fraunces', 'Times New Roman', Georgia, serif;
+    --sans:  'Manrope', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    --mono:  'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+    /* Rhythm */
+    --baseline: 8px;
+    --max-w: 1320px;
+    --gutter: 32px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'kern', 'liga', 'calt';
+  }
+
+  ::selection { background: var(--ink); color: var(--paper); }
+
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  ul { list-style: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ================ MASTHEAD ================ */
+  .masthead {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .masthead-inner {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 18px var(--gutter);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .brand-monogram {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    line-height: 1;
+    width: 38px; height: 38px;
+    display: grid; place-items: center;
+    background: var(--ink);
+    color: var(--paper);
+    font-style: italic;
+    position: relative;
+  }
+  .brand-monogram::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 0.5px solid rgba(250,247,242,0.3);
+  }
+  .brand-wordmark {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.012em;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .brand-wordmark .dot { color: var(--accent); }
+  .brand-tag {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-top: 3px;
+    line-height: 1;
+  }
+
+  .nav {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+  }
+  .nav-link {
+    padding: 9px 16px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--mute);
+    letter-spacing: -0.005em;
+    border-radius: 100px;
+    transition: color 180ms ease, background 180ms ease;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+  }
+  .nav-link:hover { color: var(--ink); background: rgba(10, 14, 19, 0.04); }
+  .nav-link.active {
+    color: var(--ink);
+    background: rgba(10, 14, 19, 0.06);
+  }
+
+  .masthead-actions {
+    display: flex; gap: 8px; justify-content: flex-end; align-items: center;
+  }
+
+  /* ================ BUTTONS ================ */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    transition: background 200ms ease, border-color 200ms ease, color 200ms ease, transform 200ms ease;
+    cursor: pointer;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-2); }
+  .btn-ghost:hover { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .btn-sm { padding: 9px 14px; font-size: 12.5px; }
+  .btn-lg { padding: 16px 28px; font-size: 14.5px; }
+  .btn .arr { display: inline-block; transition: transform 220ms ease; font-weight: 400; }
+  .btn:hover .arr { transform: translateX(3px); }
+
+  /* ================ VIEW SYSTEM ================ */
+  .view { display: none; }
+  .view.active { display: block; animation: viewIn 380ms cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes viewIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ================ TYPE PRIMITIVES ================ */
+  .display-1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(56px, 8vw, 104px);
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+  }
+  .display-1 em {
+    font-style: italic; font-weight: 300; color: var(--accent);
+  }
+  .display-2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(40px, 5.4vw, 68px);
+    line-height: 1;
+    letter-spacing: -0.028em;
+    color: var(--ink);
+  }
+  .display-3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(28px, 3.6vw, 42px);
+    line-height: 1.05;
+    letter-spacing: -0.022em;
+  }
+  .lede {
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    max-width: 560px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--accent);
+  }
+  .label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  /* ================ HERO ================ */
+  .hero {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 96px var(--gutter) 80px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    gap: 88px;
+    align-items: center;
+  }
+  .hero-content > * + * { margin-top: 28px; }
+  .hero-content .display-1 { margin-top: 28px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; padding-top: 12px; }
+
+  .hero-stats {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 1;
+    letter-spacing: -0.028em;
+    color: var(--ink);
+    font-feature-settings: 'tnum';
+  }
+  .stat-num .unit {
+    font-size: 22px;
+    color: var(--accent);
+    margin-left: 2px;
+    vertical-align: super;
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-top: 10px;
+  }
+
+  /* ================ CREDENTIAL CARD ================ */
+  .credential {
+    background: var(--paper);
+    border: 1px solid var(--line-2);
+    padding: 36px 36px 32px;
+    position: relative;
+    border-radius: 4px;
+    box-shadow:
+      0 1px 0 rgba(10,14,19,0.04),
+      0 12px 40px -16px rgba(10,14,19,0.18),
+      0 32px 80px -40px rgba(10,14,19,0.22);
+    transform: rotate(0.4deg);
+    transition: transform 400ms cubic-bezier(.2,.7,.2,1);
+  }
+  .credential:hover { transform: rotate(0deg) translateY(-4px); }
+
+  .cred-watermark {
+    position: absolute;
+    top: 24px; right: 24px;
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--accent);
+    letter-spacing: -0.005em;
+    opacity: 0.85;
+  }
+  .cred-organ {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 6px;
+  }
+  .cred-issued {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--ink-3);
+    margin-bottom: 28px;
+    letter-spacing: -0.005em;
+  }
+  .cred-bearer-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 6px;
+  }
+  .cred-bearer {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.05;
+    letter-spacing: -0.018em;
+    margin-bottom: 6px;
+  }
+  .cred-designation {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 28px;
+  }
+
+  .cred-divider {
+    height: 1px; background: var(--line); margin: 0 -8px 20px;
+  }
+  .cred-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 24px;
+    margin-bottom: 28px;
+  }
+  .cred-field-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+  .cred-field-value {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .cred-field-value.tnum { font-feature-settings: 'tnum'; }
+
+  .cred-footer {
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .cred-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--success);
+  }
+  .cred-status::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--success);
+  }
+  .cred-seal {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--mute);
+    text-align: right;
+    line-height: 1.4;
+  }
+  .cred-seal strong {
+    display: block;
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  /* ================ DOCTRINE BAND ================ */
+  .doctrine-band {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 120px var(--gutter);
+    margin-top: 32px;
+  }
+  .doctrine-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .doctrine-eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+  }
+  .doctrine-quote {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+  }
+  .doctrine-quote em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .doctrine-attr {
+    margin-top: 48px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute-2);
+  }
+
+  /* ================ SECTION ================ */
+  .section {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 120px var(--gutter);
+  }
+  .section-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+    gap: 64px;
+    margin-bottom: 72px;
+    align-items: end;
+  }
+  .section-head-meta > * + * { margin-top: 16px; }
+
+  /* ================ MODULES ================ */
+  .modules {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .mod {
+    background: var(--paper);
+    padding: 36px 32px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    transition: background 240ms ease;
+    cursor: pointer;
+  }
+  .mod:hover { background: var(--paper-2); }
+
+  .mod-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .mod-num {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .mod-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  .mod-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 1.18;
+    letter-spacing: -0.014em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .mod-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--mute);
+    flex-grow: 1;
+    letter-spacing: -0.003em;
+  }
+  .mod-foot {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .mod-foot .more { color: var(--accent); }
+
+  /* ================ PRICING ================ */
+  .pricing {
+    background: var(--paper-2);
+    padding: 120px var(--gutter);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .pricing-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .price-card {
+    background: var(--paper);
+    border: 1px solid var(--line-2);
+    border-radius: 4px;
+    padding: 40px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 280ms ease, border-color 220ms ease;
+  }
+  .price-card:hover { transform: translateY(-3px); border-color: var(--ink); }
+  .price-card.featured {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .price-card.featured .price-name,
+  .price-card.featured .price-period { color: var(--mute-2); }
+  .price-card.featured .price-amount,
+  .price-card.featured .price-feat { color: var(--paper); }
+  .price-card.featured .price-feat { border-bottom-color: rgba(250,247,242,0.10); }
+  .price-card.featured .price-feat::before { background: var(--accent); }
+
+  .price-flag {
+    position: absolute;
+    top: -1px; left: -1px;
+    background: var(--accent);
+    color: var(--paper);
+    padding: 7px 14px 7px 13px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 4px 0 4px 0;
+  }
+  .price-name {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .price-amount {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: -0.032em;
+    color: var(--ink);
+    font-feature-settings: 'tnum';
+  }
+  .price-amount .currency {
+    font-size: 24px;
+    color: var(--accent);
+    vertical-align: super;
+    line-height: 1;
+    margin-right: 4px;
+  }
+  .price-amount .small {
+    font-size: 28px; color: var(--ink);
+    font-style: italic;
+    font-weight: 300;
+  }
+  .price-period {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-top: 10px;
+    margin-bottom: 32px;
+  }
+  .price-features { flex-grow: 1; margin-bottom: 28px; }
+  .price-feat {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink);
+    padding: 12px 0 12px 24px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    letter-spacing: -0.003em;
+  }
+  .price-feat::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 19px;
+    width: 12px; height: 1.5px;
+    background: var(--ink);
+  }
+  .price-feat:last-child { border-bottom: none; }
+  .price-cta { width: 100%; justify-content: center; }
+  .price-card.featured .price-cta {
+    background: var(--paper); color: var(--ink); border-color: var(--paper);
+  }
+  .price-card.featured .price-cta:hover { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+
+  .pricing-note {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 13.5px;
+    color: var(--mute);
+    letter-spacing: -0.003em;
+  }
+  .pricing-note strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ================ FOUNDER ================ */
+  .founder {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 120px var(--gutter);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+    gap: 80px;
+    align-items: center;
+  }
+  .founder-portrait {
+    aspect-ratio: 4/5;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+  /* Replace this with a real <img src="…">  */
+  .founder-portrait::before {
+    content: '[ FOUNDER PORTRAIT ]';
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    color: var(--mute);
+  }
+  .founder-portrait::after {
+    content: 'Insert ~800 × 1000 px photograph';
+    position: absolute;
+    bottom: 24px; left: 0; right: 0;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    color: var(--mute-2);
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .founder-meta { margin-bottom: 20px; }
+  .founder-name {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(38px, 4.4vw, 56px);
+    letter-spacing: -0.024em;
+    line-height: 1.02;
+    margin-bottom: 12px;
+  }
+  .founder-name em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .founder-title {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 36px;
+    font-weight: 500;
+  }
+  .founder-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.42;
+    color: var(--ink);
+    border-left: 2px solid var(--accent);
+    padding-left: 28px;
+    letter-spacing: -0.008em;
+    max-width: 620px;
+  }
+
+  /* ================ FOOTER ================ */
+  footer.foot {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 80px var(--gutter) 32px;
+  }
+  .foot-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid rgba(250,247,242,0.10);
+  }
+  .foot-brand-mark {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.022em;
+    color: var(--paper);
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+  .foot-brand-mark .dot { color: var(--accent); }
+  .foot-blurb {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--mute-2);
+    max-width: 320px;
+  }
+  .foot-col h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .foot-col a {
+    display: block;
+    font-size: 14px;
+    color: var(--paper);
+    opacity: 0.75;
+    padding: 5px 0;
+    transition: opacity 180ms ease, color 180ms ease;
+    letter-spacing: -0.003em;
+  }
+  .foot-col a:hover { opacity: 1; color: var(--accent); }
+
+  .foot-base {
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute-2);
+  }
+
+  /* ================ DASHBOARD ================ */
+  .dash {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: calc(100vh - 73px);
+  }
+  .dash-side {
+    border-right: 1px solid var(--line);
+    padding: 40px 28px;
+    background: var(--paper);
+  }
+  .dash-user {
+    padding-bottom: 24px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .dash-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    display: grid; place-items: center;
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+  }
+  .dash-user-name {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.012em;
+    line-height: 1.2;
+  }
+  .dash-user-id {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--mute);
+    margin-top: 4px;
+  }
+  .dash-user-status {
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(184, 134, 27, 0.10);
+    color: var(--signal);
+    padding: 5px 10px;
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .dash-user-status::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%; background: var(--signal);
+  }
+
+  .nav-group { margin-top: 28px; }
+  .nav-group-h {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 10px;
+    font-weight: 500;
+    padding-left: 12px;
+  }
+  .side-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 12px;
+    font-size: 13.5px;
+    color: var(--ink-2);
+    border-radius: 6px;
+    margin: 1px 0;
+    transition: background 160ms ease, color 160ms ease;
+    cursor: pointer;
+    letter-spacing: -0.003em;
+  }
+  .side-link:hover { background: var(--paper-2); color: var(--ink); }
+  .side-link.active { background: var(--ink); color: var(--paper); font-weight: 500; }
+  .side-link .badge {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    color: var(--mute);
+    letter-spacing: 0.06em;
+  }
+  .side-link.active .badge { color: var(--mute-2); }
+
+  .dash-main {
+    padding: 56px 64px;
+    background: var(--paper);
+  }
+  .dash-h1 {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 400;
+    letter-spacing: -0.026em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .dash-h1 em { font-style: italic; font-weight: 300; color: var(--accent); }
+  .dash-sub {
+    font-size: 16px;
+    color: var(--mute);
+    margin-bottom: 48px;
+    letter-spacing: -0.003em;
+  }
+
+  .dash-progress {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, auto));
+    gap: 40px;
+    align-items: center;
+  }
+  .progress-block-h {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .progress-h-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 500;
+  }
+  .progress-h-value {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .progress-rail {
+    height: 4px;
+    background: var(--paper-3);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 50%;
+    border-radius: 100px;
+  }
+  .progress-stat .stat-label {
+    text-align: right;
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+  .progress-stat-num {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.022em;
+    text-align: right;
+    font-feature-settings: 'tnum';
+  }
+
+  .module-list { border-top: 1px solid var(--line); }
+  .module-row {
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr) 140px 130px;
+    gap: 32px;
+    padding: 24px 8px;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    transition: background 180ms ease, padding 220ms ease;
+  }
+  .module-row.unlocked { cursor: pointer; }
+  .module-row.unlocked:hover {
+    background: var(--paper-2);
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .module-row.locked { opacity: 0.42; }
+
+  .row-num {
+    font-family: var(--serif);
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    font-feature-settings: 'tnum';
+  }
+  .module-row.locked .row-num { color: var(--mute-2); font-style: italic; font-weight: 300; }
+
+  .row-info-title {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: -0.016em;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  .row-info-meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--mute);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .row-status {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 11px;
+    border-radius: 100px;
+    text-align: center;
+    font-weight: 600;
+    justify-self: end;
+  }
+  .row-status.complete {
+    color: var(--success);
+    background: rgba(45, 90, 63, 0.10);
+  }
+  .row-status.active {
+    color: var(--accent);
+    background: rgba(168, 50, 28, 0.10);
+  }
+  .row-status.locked {
+    color: var(--mute);
+    background: rgba(101, 105, 111, 0.08);
+  }
+  .row-action {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: right;
+    color: var(--ink);
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 180ms ease;
+  }
+  .row-action:hover { color: var(--accent); }
+  .module-row.locked .row-action { color: var(--mute); cursor: not-allowed; }
+
+  .exam-preview {
+    margin-top: 48px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 40px 36px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 32px;
+    align-items: center;
+  }
+  .ex-status {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .ex-title {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+  .ex-meta {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    color: var(--mute-2);
+  }
+  .exam-preview .btn-locked {
+    background: rgba(250,247,242,0.10);
+    color: var(--mute-2);
+    border: 1px solid rgba(250,247,242,0.18);
+    cursor: not-allowed;
+  }
+
+  /* ================ READER ================ */
+  .reader {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr) 320px;
+    min-height: calc(100vh - 73px);
+  }
+  .reader-side {
+    border-right: 1px solid var(--line);
+    padding: 40px 28px;
+    background: var(--paper);
+  }
+  .reader-crumb {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .toc { list-style: none; }
+  .toc-item {
+    padding: 9px 12px 9px 16px;
+    font-size: 13.5px;
+    color: var(--mute);
+    border-left: 2px solid var(--line);
+    margin-left: -2px;
+    cursor: pointer;
+    transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+    letter-spacing: -0.003em;
+    line-height: 1.4;
+    display: flex;
+    gap: 12px;
+  }
+  .toc-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--mute-2);
+    flex-shrink: 0;
+    font-feature-settings: 'tnum';
+  }
+  .toc-item:hover { color: var(--ink); }
+  .toc-item.current {
+    color: var(--ink);
+    border-left-color: var(--accent);
+    font-weight: 600;
+  }
+  .toc-item.current .toc-num { color: var(--accent); }
+  .toc-item.complete .toc-num::after {
+    content: ' ✓';
+    color: var(--success);
+  }
+
+  .reader-main {
+    padding: 64px 80px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .reader-tag {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 28px;
+  }
+  .reader-tag-item {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 500;
+  }
+  .reader-tag-item:first-child { color: var(--accent); font-weight: 600; }
+  .reader-h1 {
+    font-family: var(--serif);
+    font-size: 56px;
+    font-weight: 400;
+    letter-spacing: -0.028em;
+    line-height: 1.02;
+    margin-bottom: 16px;
+  }
+  .reader-h1 em { font-style: italic; font-weight: 300; color: var(--accent); }
+  .reader-objective {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18.5px;
+    line-height: 1.4;
+    color: var(--mute);
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 40px;
+    letter-spacing: -0.008em;
+  }
+  .reader-h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.018em;
+    margin: 48px 0 14px;
+    line-height: 1.15;
+  }
+  .reader-main p {
+    font-size: 16.5px;
+    line-height: 1.65;
+    margin-bottom: 18px;
+    color: var(--ink-2);
+    letter-spacing: -0.003em;
+  }
+  .reader-main p strong { font-weight: 600; color: var(--ink); }
+
+  .doctrine-box {
+    border: 1px solid var(--line-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 36px 0;
+    background: rgba(168, 50, 28, 0.025);
+    position: relative;
+  }
+  .doctrine-tag {
+    position: absolute;
+    top: -10px; left: 24px;
+    background: var(--paper);
+    padding: 0 10px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .doctrine-box-text {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.4;
+    color: var(--ink);
+    letter-spacing: -0.012em;
+  }
+
+  .reader-foot {
+    margin-top: 64px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+  }
+  .reader-foot a {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 600;
+    transition: color 180ms ease;
+  }
+  .reader-foot a:hover { color: var(--ink); }
+
+  .notes {
+    background: var(--paper-2);
+    border-left: 1px solid var(--line);
+    padding: 40px 28px;
+  }
+  .notes-h {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .notes-h .add {
+    color: var(--accent);
+    cursor: pointer;
+    letter-spacing: 0.18em;
+  }
+  .note-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    border-left: 2px solid var(--signal);
+    transition: border-color 180ms ease, transform 180ms ease;
+  }
+  .note-card:hover { transform: translateX(2px); border-left-color: var(--accent); }
+  .note-card.fresh { border-left-color: var(--accent); }
+  .note-card.archived { border-left-color: var(--success); }
+  .note-time {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .note-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14.5px;
+    line-height: 1.45;
+    color: var(--ink-2);
+    letter-spacing: -0.005em;
+  }
+  .notes-foot {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .notes-foot-h {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .notes-foot-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  /* ================ EXAM ================ */
+  .exam {
+    background: var(--ink);
+    color: var(--paper);
+    min-height: calc(100vh - 73px);
+  }
+  .exam-bar {
+    border-bottom: 1px solid rgba(250,247,242,0.08);
+    padding: 16px 32px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    gap: 32px;
+    align-items: center;
+    background: rgba(0,0,0,0.20);
+  }
+  .exam-id {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--paper);
+    font-weight: 600;
+  }
+  .exam-id .session { color: var(--mute-2); margin-left: 12px; font-weight: 400;}
+  .exam-rail {
+    height: 4px;
+    background: rgba(250,247,242,0.08);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .exam-rail-fill { height: 100%; width: 22%; background: var(--accent); border-radius: 100px;}
+  .exam-timer {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--paper);
+    background: rgba(168, 50, 28, 0.18);
+    padding: 7px 14px;
+    border: 1px solid rgba(168, 50, 28, 0.6);
+    border-radius: 4px;
+    font-feature-settings: 'tnum';
+  }
+  .exam-rec {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--paper);
+    font-weight: 600;
+  }
+  .rec-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .exam-grid {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr) 260px;
+    min-height: calc(100vh - 73px - 60px);
+  }
+
+  .exam-q-nav {
+    border-right: 1px solid rgba(250,247,242,0.08);
+    padding: 32px 24px;
+  }
+  .exam-q-nav h6 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .q-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+  .q-cell {
+    aspect-ratio: 1;
+    display: grid; place-items: center;
+    border: 1px solid rgba(250,247,242,0.15);
+    background: transparent;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--paper);
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 160ms ease, border-color 160ms ease;
+    font-feature-settings: 'tnum';
+  }
+  .q-cell:hover:not(.current) { background: rgba(250,247,242,0.06); }
+  .q-cell.answered {
+    background: rgba(45, 90, 63, 0.30);
+    border-color: rgba(45, 90, 63, 0.7);
+  }
+  .q-cell.flagged {
+    border-color: var(--signal);
+    color: var(--signal);
+  }
+  .q-cell.current {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--paper);
+    font-weight: 600;
+  }
+  .q-cell.muted { opacity: 0.35; cursor: default; }
+
+  .q-legend {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(250,247,242,0.08);
+  }
+  .q-legend h6 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mute-2);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .q-legend-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute-2);
+    padding: 5px 0;
+  }
+  .q-legend-row .sw {
+    width: 12px; height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .sw-cur { background: var(--accent); }
+  .sw-ans { background: rgba(45, 90, 63, 0.30); border: 1px solid rgba(45, 90, 63, 0.7); }
+  .sw-flag { border: 1px solid var(--signal); }
+
+  .exam-q {
+    padding: 64px 72px;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .exam-q-meta {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .exam-q-meta-item {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute-2);
+    font-weight: 500;
+  }
+  .exam-q-meta-item:first-child { color: var(--accent); font-weight: 600; }
+  .exam-q-stem {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 1.42;
+    color: var(--paper);
+    margin-bottom: 40px;
+    letter-spacing: -0.012em;
+  }
+
+  .opts { display: flex; flex-direction: column; gap: 8px; }
+  .opt {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 16px;
+    padding: 18px 22px;
+    border: 1px solid rgba(250,247,242,0.15);
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: start;
+    transition: background 160ms ease, border-color 160ms ease;
+  }
+  .opt:hover {
+    border-color: rgba(250,247,242,0.4);
+    background: rgba(250,247,242,0.03);
+  }
+  .opt.selected {
+    border-color: var(--accent);
+    background: rgba(168, 50, 28, 0.10);
+  }
+  .opt-letter {
+    width: 28px; height: 28px;
+    border-radius: 4px;
+    border: 1px solid rgba(250,247,242,0.4);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    display: grid; place-items: center;
+    transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+  }
+  .opt.selected .opt-letter {
+    background: var(--accent);
+    color: var(--paper);
+    border-color: var(--accent);
+  }
+  .opt-text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--paper);
+    padding-top: 4px;
+    letter-spacing: -0.003em;
+  }
+
+  .exam-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(250,247,242,0.08);
+    gap: 12px;
+  }
+  .exam-btn {
+    padding: 12px 20px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.003em;
+    border: 1px solid rgba(250,247,242,0.4);
+    background: transparent;
+    color: var(--paper);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+    line-height: 1;
+  }
+  .exam-btn:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+  .exam-btn.primary {
+    background: var(--accent); color: var(--paper); border-color: var(--accent);
+  }
+  .exam-btn.primary:hover { background: var(--accent-2); border-color: var(--accent-2); color: var(--paper); }
+  .exam-controls-right { display: flex; gap: 8px; }
+
+  .exam-side {
+    border-left: 1px solid rgba(250,247,242,0.08);
+    padding: 32px 24px;
+    background: rgba(0,0,0,0.20);
+  }
+
+  /* Refined webcam placeholder — clean, abstract, not silhouette */
+  .cam-card {
+    border: 1px solid rgba(250,247,242,0.15);
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 18px;
+    background: rgba(250,247,242,0.02);
+  }
+  .cam-frame {
+    aspect-ratio: 4/3;
+    background: #06090C;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .cam-frame::before {
+    content: 'LIVE';
+    position: absolute;
+    top: 8px; left: 8px; z-index: 2;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    background: rgba(0,0,0,0.7);
+    padding: 3px 7px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .cam-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 130%, rgba(250,247,242,0.06) 0%, transparent 60%),
+      radial-gradient(circle at 50% 35%, rgba(250,247,242,0.04) 0%, transparent 30%);
+  }
+
+  .cam-info {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    color: var(--mute-2);
+    line-height: 1.7;
+    text-transform: uppercase;
+  }
+  .cam-info strong {
+    display: block;
+    color: var(--paper);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    margin-bottom: 4px;
+    font-size: 11px;
+  }
+
+  .integrity h6 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .integrity-list { list-style: none; }
+  .integrity-list li {
+    padding: 8px 0 8px 22px;
+    position: relative;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--mute-2);
+    border-bottom: 1px solid rgba(250,247,242,0.04);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .integrity-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px;
+    width: 10px; height: 5px;
+    border-left: 1.5px solid var(--success);
+    border-bottom: 1.5px solid var(--success);
+    transform: rotate(-45deg);
+  }
+  .exam-warning {
+    margin-top: 24px;
+    padding: 14px 16px;
+    border: 1px solid rgba(168, 50, 28, 0.4);
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.10em;
+    color: var(--accent);
+    line-height: 1.6;
+    text-transform: uppercase;
+    background: rgba(168, 50, 28, 0.05);
+    font-weight: 500;
+  }
+
+  /* ================ ENTRANCE ANIMATIONS ================ */
+  .reveal { opacity: 0; transform: translateY(12px); }
+  .reveal.in {
+    opacity: 1; transform: translateY(0);
+    transition: opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal.d-1.in { transition-delay: 60ms; }
+  .reveal.d-2.in { transition-delay: 120ms; }
+  .reveal.d-3.in { transition-delay: 180ms; }
+  .reveal.d-4.in { transition-delay: 240ms; }
+  .reveal.d-5.in { transition-delay: 300ms; }
+
+  /* ================ RESPONSIVE ================ */
+  @media (max-width: 1100px) {
+    .hero { grid-template-columns: 1fr; gap: 56px; padding: 64px var(--gutter); }
+    .modules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .founder { grid-template-columns: 1fr; gap: 48px; }
+    .founder-portrait { max-width: 360px; }
+    .reader { grid-template-columns: 1fr; }
+    .reader-side, .notes { display: none; }
+    .reader-main { padding: 40px 32px; }
+    .dash { grid-template-columns: 1fr; }
+    .dash-side { display: none; }
+    .dash-main { padding: 40px 32px; }
+    .exam-grid { grid-template-columns: 1fr; }
+    .exam-q-nav, .exam-side { display: none; }
+    .exam-q { padding: 40px 32px; }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .section-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 48px; }
+    .section { padding: 80px var(--gutter); }
+    .doctrine-band { padding: 80px var(--gutter); }
+  }
+  @media (max-width: 720px) {
+    :root { --gutter: 20px; }
+    .modules { grid-template-columns: 1fr; }
+    .masthead-inner { grid-template-columns: 1fr auto; gap: 12px; }
+    .nav { display: none; }
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .dash-progress { grid-template-columns: 1fr; gap: 24px; }
+    .module-row { grid-template-columns: 60px 1fr; gap: 16px; }
+    .module-row .row-status, .module-row .row-action { display: none; }
+    .exam-preview { grid-template-columns: 1fr; gap: 20px; }
+    .foot-grid { grid-template-columns: 1fr; }
+    .foot-base { flex-direction: column; gap: 12px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== MASTHEAD ============== -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <a href="#" class="brand" onclick="switchView('landing'); return false;">
+      <div class="brand-monogram">A</div>
+      <div>
+        <div class="brand-wordmark">aipilotlicense<span class="dot">.</span>com</div>
+        <div class="brand-tag">Office of the Certified AI Pilot</div>
+      </div>
+    </a>
+
+    <nav class="nav" role="tablist">
+      <button class="nav-link active" data-view="landing" role="tab">Overview</button>
+      <button class="nav-link" data-view="dashboard" role="tab">Candidate</button>
+      <button class="nav-link" data-view="reading" role="tab">Curriculum</button>
+      <button class="nav-link" data-view="exam" role="tab">Examination</button>
+    </nav>
+
+    <div class="masthead-actions">
+      <a href="#" class="btn btn-ghost btn-sm">Verify a CAIP</a>
+      <a href="#" class="btn btn-primary btn-sm">Begin Certification <span class="arr">→</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============== LANDING ============== -->
+<main class="view active" id="view-landing">
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow reveal in">Issued under the founding charter of P.-A. Pissarro</div>
+      <h1 class="display-1 reveal d-1 in">Operate AI like a <em>pilot,</em> not a passenger.</h1>
+      <p class="lede reveal d-2 in">
+        The Certified AI Pilot is the professional standard for using AI as an execution engine. Six modules of doctrine. One proctored examination. A credential that names a skill the field hasn't, until now, agreed to call by name.
+      </p>
+      <div class="hero-cta reveal d-3 in">
+        <a href="#" class="btn btn-primary btn-lg" onclick="switchView('dashboard'); return false;">Begin certification <span class="arr">→</span></a>
+        <a href="#" class="btn btn-ghost btn-lg" onclick="switchView('reading'); return false;">Preview the manual</a>
+      </div>
+
+      <div class="hero-stats reveal d-4 in">
+        <div>
+          <div class="stat-num">6</div>
+          <div class="stat-label">Modules</div>
+        </div>
+        <div>
+          <div class="stat-num">60<span class="unit">q</span></div>
+          <div class="stat-label">Proctored Exam</div>
+        </div>
+        <div>
+          <div class="stat-num">75<span class="unit">%</span></div>
+          <div class="stat-label">Pass Threshold</div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="credential reveal d-2 in" aria-label="Specimen credential">
+      <div class="cred-watermark">Specimen</div>
+      <div class="cred-organ">Office of the Certified AI Pilot</div>
+      <div class="cred-issued">This is to certify that the bearer named below has satisfied the requirements of the certifying body and is admitted to the register.</div>
+
+      <div class="cred-bearer-label">Bearer</div>
+      <div class="cred-bearer">Avery R. Holloway</div>
+      <div class="cred-designation">CAIP — REGISTERED</div>
+
+      <div class="cred-divider"></div>
+
+      <div class="cred-grid">
+        <div>
+          <div class="cred-field-label">Credential №</div>
+          <div class="cred-field-value tnum">CAIP-2026-00742</div>
+        </div>
+        <div>
+          <div class="cred-field-label">Issued</div>
+          <div class="cred-field-value">14 March 2026</div>
+        </div>
+        <div>
+          <div class="cred-field-label">Score</div>
+          <div class="cred-field-value tnum">52 / 60 — 86.7%</div>
+        </div>
+        <div>
+          <div class="cred-field-label">Expires</div>
+          <div class="cred-field-value">14 March 2028</div>
+        </div>
+      </div>
+
+      <div class="cred-footer">
+        <span class="cred-status">Active &middot; Good Standing</span>
+        <div class="cred-seal">
+          <strong>Office of the Registrar</strong>
+          P.-A. Pissarro, CAIP
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- Doctrine band -->
+  <section class="doctrine-band">
+    <div class="doctrine-inner">
+      <div class="doctrine-eyebrow">— Founding Doctrine —</div>
+      <p class="doctrine-quote">
+        Most people fly the plane with their eyes closed and call it magic. The <em>Certified AI Pilot</em> opens their eyes, names what they're holding, and is held responsible for where it lands.
+      </p>
+      <div class="doctrine-attr">Office of the CAIP &middot; Founding Charter</div>
+    </div>
+  </section>
+
+  <!-- Modules -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-head-meta">
+        <div class="eyebrow">Curriculum &middot; Six Modules</div>
+        <div class="label">CAIP-CUR-01</div>
+      </div>
+      <h2 class="display-2">Six modules. One discipline. Built the way pilots are built.</h2>
+    </div>
+
+    <div class="modules">
+      <article class="mod">
+        <div class="mod-header">
+          <div class="mod-num">01</div>
+          <div class="mod-tag">Foundational</div>
+        </div>
+        <h3 class="mod-title">What AI Actually Is (and Isn't)</h3>
+        <p class="mod-desc">A statistical mirror, not a mind. Clear the mythology. Recognize the four failure modes before they cost you.</p>
+        <div class="mod-foot"><span>Objective 1</span><span class="more">Read →</span></div>
+      </article>
+
+      <article class="mod">
+        <div class="mod-header">
+          <div class="mod-num">02</div>
+          <div class="mod-tag">Foundational</div>
+        </div>
+        <h3 class="mod-title">The Question Beneath the Prompt</h3>
+        <p class="mod-desc">Cognition before composition. The four-layer prompt is a thinking instrument, not a syntax trick.</p>
+        <div class="mod-foot"><span>Objective 2</span><span class="more">Read →</span></div>
+      </article>
+
+      <article class="mod">
+        <div class="mod-header">
+          <div class="mod-num">03</div>
+          <div class="mod-tag">Applied</div>
+        </div>
+        <h3 class="mod-title">Systems Thinking for Non-Engineers</h3>
+        <p class="mod-desc">Read the model the way a pilot reads instruments. Inputs, transformations, outputs, feedback.</p>
+        <div class="mod-foot"><span>Objective 3</span><span class="more">Read →</span></div>
+      </article>
+
+      <article class="mod">
+        <div class="mod-header">
+          <div class="mod-num">04</div>
+          <div class="mod-tag">Applied</div>
+        </div>
+        <h3 class="mod-title">Workflow Architecture</h3>
+        <p class="mod-desc">The work is the workflow. Build repeatable, gated, AI-powered processes for real deliverables.</p>
+        <div class="mod-foot"><span>Objective 4</span><span class="more">Read →</span></div>
+      </article>
+
+      <article class="mod">
+        <div class="mod-header">
+          <div class="mod-num">05</div>
+          <div class="mod-tag">Applied</div>
+        </div>
+        <h3 class="mod-title">Ethics &amp; Liability</h3>
+        <p class="mod-desc">The pilot is responsible. Refuse, escalate, or stop — the three conditions every CAIP must know cold.</p>
+        <div class="mod-foot"><span>Objective 5</span><span class="more">Read →</span></div>
+      </article>
+
+      <article class="mod">
+        <div class="mod-header">
+          <div class="mod-num">06</div>
+          <div class="mod-tag">Integration</div>
+        </div>
+        <h3 class="mod-title">Integrated Practice</h3>
+        <p class="mod-desc">Three full-flight scenarios. Six-dimension rubric. Capstone and exam graded independently.</p>
+        <div class="mod-foot"><span>Objective 6</span><span class="more">Read →</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing">
+    <div class="pricing-inner">
+      <div class="section-head">
+        <div class="section-head-meta">
+          <div class="eyebrow">Schedule of Fees &middot; 2026</div>
+          <div class="label">CAIP-FEE-01</div>
+        </div>
+        <h2 class="display-2">The course is the on-ramp. The examination is the credential.</h2>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-name">Curriculum Access</div>
+          <div class="price-amount"><span class="currency">$</span>0</div>
+          <div class="price-period">All six modules</div>
+          <ul class="price-features">
+            <li class="price-feat">Full module library, self-paced</li>
+            <li class="price-feat">Downloadable manual (PDF)</li>
+            <li class="price-feat">Practice exercises</li>
+            <li class="price-feat">Personal notes &amp; progress tracking</li>
+            <li class="price-feat">No examination access</li>
+          </ul>
+          <a href="#" class="btn btn-ghost price-cta">Begin reading</a>
+        </div>
+
+        <div class="price-card featured">
+          <div class="price-flag">Standard</div>
+          <div class="price-name">Examination Bundle</div>
+          <div class="price-amount"><span class="currency">$</span>97</div>
+          <div class="price-period">Two attempts included</div>
+          <ul class="price-features">
+            <li class="price-feat">Two proctored exam sittings</li>
+            <li class="price-feat">90 minutes &middot; 60 questions</li>
+            <li class="price-feat">Digital and printable certificate</li>
+            <li class="price-feat">CAIP designation upon issue</li>
+            <li class="price-feat">Two-year credential validity</li>
+          </ul>
+          <a href="#" class="btn price-cta">Register for examination</a>
+        </div>
+
+        <div class="price-card">
+          <div class="price-name">Corporate &amp; Institutional</div>
+          <div class="price-amount"><span class="small">By request</span></div>
+          <div class="price-period">Volume licensing</div>
+          <ul class="price-features">
+            <li class="price-feat">Volume licensing from 10 seats</li>
+            <li class="price-feat">Organizational dashboard</li>
+            <li class="price-feat">Tier-1 webcam proctoring included</li>
+            <li class="price-feat">Custom registry namespace</li>
+            <li class="price-feat">CAPI instructor pathway available</li>
+          </ul>
+          <a href="#" class="btn btn-ghost price-cta">Contact registrar</a>
+        </div>
+      </div>
+
+      <div class="pricing-note">
+        Subsequent retake <strong>$47 per attempt</strong> &middot; Renewal at expiration follows the same schedule
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section class="founder">
+    <div class="founder-portrait" aria-label="Replace with photograph of P.-A. Pissarro"></div>
+    <div>
+      <div class="founder-meta">
+        <div class="eyebrow">Founder &middot; Charter № 00001</div>
+      </div>
+      <h3 class="founder-name">Paul-Alexander Pissarro, <em>CAIP</em></h3>
+      <div class="founder-title">Founder &middot; Chief Examiner</div>
+      <blockquote class="founder-quote">
+        "I built this credential because I have used AI as an execution engine for years and watched everyone around me use it badly. The skill gap is real. Until now nobody had named it. CAIP is the name."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="foot">
+    <div class="foot-inner">
+      <div class="foot-grid">
+        <div class="foot-col">
+          <div class="foot-brand-mark">aipilotlicense<span class="dot">.</span>com</div>
+          <p class="foot-blurb">The official registry of the Certified AI Pilot credential. Issued under the founding charter of P.-A. Pissarro, CAIP.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Credential</h4>
+          <a href="#">Verify a CAIP</a>
+          <a href="#">Renewal &amp; recertification</a>
+          <a href="#">CAPI instructor tier</a>
+          <a href="#">Code of conduct</a>
+        </div>
+        <div class="foot-col">
+          <h4>Curriculum</h4>
+          <a href="#">All six modules</a>
+          <a href="#">Download the manual</a>
+          <a href="#">Practice scenarios</a>
+          <a href="#">Examination blueprint</a>
+        </div>
+        <div class="foot-col">
+          <h4>Office of the Registrar</h4>
+          <a href="#">Corporate licensing</a>
+          <a href="#">Academic partnerships</a>
+          <a href="#">Press &amp; speaking</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div class="foot-base">
+        <span>© 2026 &middot; Office of the Certified AI Pilot</span>
+        <span>Charter PAP-001 &middot; Rev 1.0</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- ============== DASHBOARD ============== -->
+<main class="view" id="view-dashboard">
+  <div class="dash">
+    <aside class="dash-side">
+      <div class="dash-user">
+        <div class="dash-avatar">AH</div>
+        <div class="dash-user-name">Avery R. Holloway</div>
+        <div class="dash-user-id">№ 00742 &middot; Candidate</div>
+        <div class="dash-user-status">In Training</div>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-h">Curriculum</div>
+        <div class="side-link active">Module index <span class="badge">6</span></div>
+        <div class="side-link">Reading list</div>
+        <div class="side-link">My notes <span class="badge">14</span></div>
+        <div class="side-link">Practice exercises</div>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-h">Examination</div>
+        <div class="side-link">Blueprint &amp; format</div>
+        <div class="side-link">Practice questions</div>
+        <div class="side-link">Schedule sitting</div>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-h">Account</div>
+        <div class="side-link">Profile</div>
+        <div class="side-link">Receipts</div>
+        <div class="side-link">Sign out</div>
+      </div>
+    </aside>
+
+    <section class="dash-main">
+      <h1 class="dash-h1">Welcome back, <em>Avery.</em></h1>
+      <p class="dash-sub">Module 04 is unlocked &middot; resume where you left off</p>
+
+      <div class="dash-progress">
+        <div>
+          <div class="progress-block-h">
+            <span class="progress-h-label">Course Completion</span>
+            <span class="progress-h-value">3 / 6 Modules</span>
+          </div>
+          <div class="progress-rail"><div class="progress-fill"></div></div>
+        </div>
+        <div class="progress-stat">
+          <div class="progress-stat-num">11.4</div>
+          <div class="stat-label">Hours</div>
+        </div>
+        <div class="progress-stat">
+          <div class="progress-stat-num">14</div>
+          <div class="stat-label">Notes</div>
+        </div>
+        <div class="progress-stat">
+          <div class="progress-stat-num">78<span class="unit" style="font-size:14px;">%</span></div>
+          <div class="stat-label">Practice</div>
+        </div>
+      </div>
+
+      <ul class="module-list">
+        <li class="module-row unlocked">
+          <div class="row-num">01</div>
+          <div>
+            <div class="row-info-title">What AI Actually Is (and Isn't)</div>
+            <div class="row-info-meta">5 sections &middot; Exercise 1.A &middot; Foundational</div>
+          </div>
+          <div class="row-status complete">Complete</div>
+          <a class="row-action">Review →</a>
+        </li>
+
+        <li class="module-row unlocked">
+          <div class="row-num">02</div>
+          <div>
+            <div class="row-info-title">The Question Beneath the Prompt</div>
+            <div class="row-info-meta">4 sections &middot; Exercise 2.A &middot; Foundational</div>
+          </div>
+          <div class="row-status complete">Complete</div>
+          <a class="row-action">Review →</a>
+        </li>
+
+        <li class="module-row unlocked">
+          <div class="row-num">03</div>
+          <div>
+            <div class="row-info-title">Systems Thinking for Non-Engineers</div>
+            <div class="row-info-meta">5 sections &middot; Exercise 3.A &middot; Applied</div>
+          </div>
+          <div class="row-status complete">Complete</div>
+          <a class="row-action">Review →</a>
+        </li>
+
+        <li class="module-row unlocked" onclick="switchView('reading');">
+          <div class="row-num">04</div>
+          <div>
+            <div class="row-info-title">Workflow Architecture</div>
+            <div class="row-info-meta">6 sections &middot; In progress &middot; Applied</div>
+          </div>
+          <div class="row-status active">Active</div>
+          <a class="row-action">Continue →</a>
+        </li>
+
+        <li class="module-row locked">
+          <div class="row-num">05</div>
+          <div>
+            <div class="row-info-title">Ethics &amp; Liability</div>
+            <div class="row-info-meta">5 sections &middot; Exercise 5.A &middot; Applied</div>
+          </div>
+          <div class="row-status locked">Locked</div>
+          <a class="row-action">Locked</a>
+        </li>
+
+        <li class="module-row locked">
+          <div class="row-num">06</div>
+          <div>
+            <div class="row-info-title">Integrated Practice</div>
+            <div class="row-info-meta">3 scenarios &middot; Capstone &middot; Integration</div>
+          </div>
+          <div class="row-status locked">Locked</div>
+          <a class="row-action">Locked</a>
+        </li>
+      </ul>
+
+      <div class="exam-preview">
+        <div>
+          <div class="ex-status">Examination Locked &middot; Complete all six modules</div>
+          <div class="ex-title">CAIP Certification Examination</div>
+          <div class="ex-meta">60 questions &middot; 90 minutes &middot; 75% to pass &middot; Proctored sitting required</div>
+        </div>
+        <button class="btn btn-locked">Schedule Sitting</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- ============== READER ============== -->
+<main class="view" id="view-reading">
+  <div class="reader">
+    <aside class="reader-side">
+      <div class="reader-crumb">Module 04 &middot; Workflow Architecture</div>
+      <ul class="toc">
+        <li class="toc-item complete"><span class="toc-num">4.0</span><span>The work is the workflow</span></li>
+        <li class="toc-item current"><span class="toc-num">4.1</span><span>Three-stage pipeline</span></li>
+        <li class="toc-item"><span class="toc-num">4.2</span><span>Review gates &amp; go/no-go</span></li>
+        <li class="toc-item"><span class="toc-num">4.3</span><span>Documentation discipline</span></li>
+        <li class="toc-item"><span class="toc-num">4.4</span><span>Failure isolation</span></li>
+        <li class="toc-item"><span class="toc-num">4.5</span><span>Exercise 4.A — Build a pipeline</span></li>
+      </ul>
+    </aside>
+
+    <article class="reader-main">
+      <div class="reader-tag">
+        <span class="reader-tag-item">§ 4.1</span>
+        <span class="reader-tag-item">8 min read</span>
+        <span class="reader-tag-item">Doctrine × 1</span>
+      </div>
+      <h1 class="reader-h1">Three-stage <em>pipeline.</em></h1>
+      <p class="reader-objective">Learning objective — given a real deliverable, decompose the work into discrete stages with inspectable handoffs and explicit review gates.</p>
+
+      <p>An amateur asks the model to write the report. A pilot does not. A pilot identifies the work as a <strong>pipeline</strong> — a sequence of bounded operations, each one inspectable, each one rejectable, each one with a clear handoff into the next.</p>
+
+      <p>The temptation, when AI is involved, is to collapse all three stages into a single prompt. The output looks fluent. The output looks finished. The output is, almost always, structurally wrong somewhere — and because it was generated in one breath, you cannot see where.</p>
+
+      <div class="doctrine-box">
+        <div class="doctrine-tag">Doctrine 4.1</div>
+        <p class="doctrine-box-text">The work is the workflow. A bad workflow with a great model produces a polished failure. A great workflow with a passable model produces dependable work.</p>
+      </div>
+
+      <h2 class="reader-h2">Stage one — structure extraction</h2>
+      <p>You do not begin with prose. You begin with structure. Hand the model the source materials and ask it to produce only the architecture: section list, claim list, evidence map. No drafting. The output is rejected and re-issued until the architecture is sound.</p>
+
+      <h2 class="reader-h2">Stage two — drafting against the structure</h2>
+      <p>Only when the architecture is approved does drafting begin — and the prompt now references the locked structure as a binding constraint, not a suggestion. The model fills in. It does not invent shape.</p>
+
+      <h2 class="reader-h2">Stage three — editorial pass</h2>
+      <p>The third stage is not "polish." The third stage is adversarial. You hand the draft back to the model with a different role and a different objective: find what is weak, find what is unsupported, find what overclaims. Then you, the pilot, decide what to act on.</p>
+
+      <div class="reader-foot">
+        <a href="#">← 4.0 The work is the workflow</a>
+        <a href="#">4.2 Review gates →</a>
+      </div>
+    </article>
+
+    <aside class="notes">
+      <div class="notes-h">
+        <span>My notes &middot; § 4.1</span>
+        <span class="add">+ New</span>
+      </div>
+
+      <div class="note-card fresh">
+        <div class="note-time">14:22 &middot; Today</div>
+        <div class="note-text">"The work is the workflow" — keep coming back to this. It reframes my whole approach to how I prompt for the quarterly review docs.</div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-time">11:08 &middot; Today</div>
+        <div class="note-text">Stage two binding constraint — try this on the marketing brief project. Lock structure first then draft.</div>
+      </div>
+
+      <div class="note-card archived">
+        <div class="note-time">Yesterday</div>
+        <div class="note-text">Adversarial editorial pass = role swap. Different role, different objective. Bookmark for the team training.</div>
+      </div>
+
+      <div class="notes-foot">
+        <div class="notes-foot-h">Highlights this section</div>
+        <div class="notes-foot-link">3 highlighted passages →</div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- ============== EXAM ============== -->
+<main class="view" id="view-exam">
+  <div class="exam">
+    <div class="exam-bar">
+      <div class="exam-id">CAIP Examination<span class="session">Sitting № SX-2026-00742</span></div>
+      <div class="exam-rail"><div class="exam-rail-fill"></div></div>
+      <div class="exam-timer">01:12:47</div>
+      <div class="exam-rec"><span class="rec-dot"></span> Proctored &middot; Tier-1</div>
+    </div>
+
+    <div class="exam-grid">
+      <aside class="exam-q-nav">
+        <h6>Questions</h6>
+        <div class="q-grid">
+          <div class="q-cell answered">1</div>
+          <div class="q-cell answered">2</div>
+          <div class="q-cell answered">3</div>
+          <div class="q-cell answered">4</div>
+          <div class="q-cell answered">5</div>
+          <div class="q-cell answered">6</div>
+          <div class="q-cell answered">7</div>
+          <div class="q-cell flagged">8</div>
+          <div class="q-cell answered">9</div>
+          <div class="q-cell answered">10</div>
+          <div class="q-cell answered">11</div>
+          <div class="q-cell answered">12</div>
+          <div class="q-cell flagged">13</div>
+          <div class="q-cell current">14</div>
+          <div class="q-cell">15</div>
+          <div class="q-cell">16</div>
+          <div class="q-cell">17</div>
+          <div class="q-cell">18</div>
+          <div class="q-cell">19</div>
+          <div class="q-cell">20</div>
+          <div class="q-cell muted">·</div>
+          <div class="q-cell muted">·</div>
+          <div class="q-cell muted">·</div>
+          <div class="q-cell muted">·</div>
+          <div class="q-cell muted">60</div>
+        </div>
+
+        <div class="q-legend">
+          <h6>Legend</h6>
+          <div class="q-legend-row"><span class="sw sw-cur"></span>Current</div>
+          <div class="q-legend-row"><span class="sw sw-ans"></span>Answered</div>
+          <div class="q-legend-row"><span class="sw sw-flag"></span>Flagged</div>
+        </div>
+      </aside>
+
+      <section class="exam-q">
+        <div class="exam-q-meta">
+          <span class="exam-q-meta-item">Question 14 / 60</span>
+          <span class="exam-q-meta-item">Module 04 — Workflow Architecture</span>
+          <span class="exam-q-meta-item">Standard</span>
+        </div>
+
+        <div class="exam-q-stem">
+          You are producing a board-level acquisition memo. You have hand-collected source documents but no prior template. You decide to use AI as the execution engine. Which of the following best reflects CAIP doctrine for structuring the work?
+        </div>
+
+        <ul class="opts">
+          <li class="opt">
+            <div class="opt-letter">A</div>
+            <div class="opt-text">Hand the source documents to the model and ask it to write the memo in a single prompt, then revise as needed.</div>
+          </li>
+          <li class="opt selected">
+            <div class="opt-letter">B</div>
+            <div class="opt-text">Decompose the work into a pipeline: (i) extract structure, (ii) draft against the locked structure, (iii) adversarial editorial pass — with explicit review gates between stages.</div>
+          </li>
+          <li class="opt">
+            <div class="opt-letter">C</div>
+            <div class="opt-text">Run three independent prompts, ask the model to pick its best output, and forward that one to the board.</div>
+          </li>
+          <li class="opt">
+            <div class="opt-letter">D</div>
+            <div class="opt-text">Refuse the assignment until you have a hand-built template that the model can populate verbatim.</div>
+          </li>
+        </ul>
+
+        <div class="exam-controls">
+          <button class="exam-btn">← Previous</button>
+          <div class="exam-controls-right">
+            <button class="exam-btn">⚑ Flag for review</button>
+            <button class="exam-btn primary">Next →</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="exam-side">
+        <div class="cam-card">
+          <div class="cam-frame"></div>
+          <div class="cam-info">
+            <strong>A. R. Holloway</strong>
+            № 00742<br>
+            Attempt 1 of 2<br>
+            Biometric: ✓ Match
+          </div>
+        </div>
+
+        <div class="integrity">
+          <h6>Integrity Monitor</h6>
+          <ul class="integrity-list">
+            <li>Identity verified</li>
+            <li>Single-tab focus</li>
+            <li>Webcam stream live</li>
+            <li>IP logged · DE</li>
+            <li>Audio baseline OK</li>
+          </ul>
+        </div>
+
+        <div class="exam-warning">
+          No external materials permitted. Use of AI tools during examination is disqualifying.
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<script>
+  // View switching
+  function switchView(name) {
+    document.querySelectorAll('.nav-link').forEach(t => {
+      t.classList.toggle('active', t.dataset.view === name);
+    });
+    document.querySelectorAll('.view').forEach(v => {
+      v.classList.toggle('active', v.id === 'view-' + name);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.querySelectorAll('.nav-link').forEach(t => {
+    t.addEventListener('click', () => switchView(t.dataset.view));
+  });
+
+  // Exam option select
+  document.querySelectorAll('.opt').forEach(o => {
+    o.addEventListener('click', () => {
+      document.querySelectorAll('.opt').forEach(x => x.classList.remove('selected'));
+      o.classList.add('selected');
+    });
+  });
+
+  // Reveal-on-scroll for any future-added .reveal items below the fold
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
