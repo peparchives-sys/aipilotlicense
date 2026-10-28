@@ -279,7 +279,9 @@
     font-size: 22px;
     color: var(--accent);
     margin-left: 2px;
-    vertical-align: super;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.62em;
     line-height: 1;
   }
   .stat-label {
@@ -1753,6 +1755,11 @@
     .section-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 48px; }
     .section { padding: 80px var(--gutter); }
     .doctrine-band { padding: 80px var(--gutter); }
+  }
+  @media (max-width: 1000px) {
+    .masthead-inner { grid-template-columns: 1fr auto; row-gap: 10px; }
+    .nav { grid-column: 1 / -1; grid-row: 2; justify-content: center; }
+    .masthead-actions .btn-ghost { display: none; }
   }
   @media (max-width: 720px) {
     :root { --gutter: 20px; }
