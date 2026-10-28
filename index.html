@@ -1766,6 +1766,14 @@
     .exam-preview { grid-template-columns: 1fr; gap: 20px; }
     .foot-grid { grid-template-columns: 1fr; }
     .foot-base { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .masthead-actions .btn-ghost { display: none; }
+    .masthead-actions { flex-shrink: 0; }
+  }
+  @media (max-width: 480px) {
+    .brand-tag { display: none; }
+    .brand-monogram { width: 32px; height: 32px; font-size: 20px; }
+    .brand-wordmark { font-size: 15px; }
+    .masthead-inner { padding: 14px var(--gutter); }
   }
 </style>
 </head>
@@ -2034,7 +2042,7 @@
       <div class="foot-grid">
         <div class="foot-col">
           <div class="foot-brand-mark">aipilotlicense<span class="dot">.</span>com</div>
-          <p class="foot-blurb">The official registry of the Certified AI Pilot credential. Issued under the founding charter of <a href="https://paulpissarro.com/" style="color:inherit; text-decoration:underline;">Paul-Alexander Pissarro</a>, CAIP.</p>
+          <p class="foot-blurb">The official registry of the Certified AI Pilot credential. Issued under the founding charter of <span style="white-space:nowrap;"><a href="https://paulpissarro.com/" style="display:inline; color:inherit; text-decoration:underline;">Paul-Alexander Pissarro</a>, CAIP.</span></p>
         </div>
         <div class="foot-col">
           <h4>Credential</h4>
